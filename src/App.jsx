@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   generateMarkdownCodeWithUsername,
   generateMarkdownCodeWithAddress,
@@ -6,25 +6,42 @@ import {
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [username, setUsername] = useState("kamuik16");
-  const [address, setAddress] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const [markdownCode, setMarkdownCode] = useState("");
 
   const getMarkdownCodeWithUsername = async () => {
-    const markdownCode = await generateMarkdownCodeWithUsername(username);
-    console.log(markdownCode);
+    try {
+      const code = await generateMarkdownCodeWithUsername(inputValue);
+      setMarkdownCode(code);
+      console.log(code);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  useEffect(() => {
-    getMarkdownCodeWithUsername();
-  }, []);
+  const getMarkdownCodeWithAddress = async () => {
+    try {
+      const code = await generateMarkdownCodeWithAddress(inputValue);
+      setMarkdownCode(code);
+      console.log(code);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
       <Navbar />
-      <input type="text" placeholder="Enter GitHub Username or address" />
-      <button>Username</button>
-      <button>Address</button>
+      <input
+        type="text"
+        placeholder="Enter GitHub Username or Address"
+        value={inputValue}
+        onChange={(e) => {
+          setInputValue(e.target.value);
+        }}
+      />
+      <button onClick={getMarkdownCodeWithUsername}>Username</button>
+      <button onClick={getMarkdownCodeWithAddress}>Address</button>
     </>
   );
 }

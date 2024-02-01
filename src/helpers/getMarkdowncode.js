@@ -1,5 +1,4 @@
 import { getPOAPsWithUsername, getPOAPsWithAddress } from "./getPOAPs";
-import prettify from "html-prettify";
 
 const generateMarkdownCodeWithUsername = async (username) => {
   try {
@@ -18,7 +17,7 @@ const generateMarkdownCodeWithUsername = async (username) => {
 
     elementsArray.push("</p>");
 
-    return prettify(elementsArray.join("\n").trim());
+    return elementsArray.join("\r\n").trim();
   } catch (error) {
     console.log(error);
     return false;
@@ -42,7 +41,7 @@ const generateMarkdownCodeWithAddress = async (address) => {
 
     elementsArray.push("</p>");
 
-    return prettify(elementsArray.join("\n").trim());
+    return elementsArray.join("\r\n").trim();
   } catch (error) {
     console.log(error);
     return false;
