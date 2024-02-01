@@ -4,29 +4,20 @@ import {
   generateMarkdownCodeWithAddress,
 } from "./helpers/getMarkdowncode";
 import Navbar from "./components/Navbar";
+import DisplayCode from "./components/DisplayCode";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [markdownCode, setMarkdownCode] = useState("");
 
   const getMarkdownCodeWithUsername = async () => {
-    try {
-      const code = await generateMarkdownCodeWithUsername(inputValue);
-      setMarkdownCode(code);
-      console.log(code);
-    } catch (error) {
-      console.log(error);
-    }
+    const code = await generateMarkdownCodeWithUsername(inputValue);
+    setMarkdownCode(code);
   };
 
   const getMarkdownCodeWithAddress = async () => {
-    try {
-      const code = await generateMarkdownCodeWithAddress(inputValue);
-      setMarkdownCode(code);
-      console.log(code);
-    } catch (error) {
-      console.log(error);
-    }
+    const code = await generateMarkdownCodeWithAddress(inputValue);
+    setMarkdownCode(code);
   };
 
   return (
@@ -42,6 +33,8 @@ function App() {
       />
       <button onClick={getMarkdownCodeWithUsername}>Username</button>
       <button onClick={getMarkdownCodeWithAddress}>Address</button>
+
+      {markdownCode && <DisplayCode code={markdownCode} />}
     </>
   );
 }

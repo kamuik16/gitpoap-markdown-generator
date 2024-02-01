@@ -5,7 +5,7 @@ const generateMarkdownCodeWithUsername = async (username) => {
     const poaps = await getPOAPsWithUsername(username);
 
     if (poaps.length == 0) {
-      return false;
+      return "No POAPs associated with this GitHub account!";
     }
 
     const elementsArray = ["## My [GitPOAPs](https://www.gitpoap.io/)", "<p>"];
@@ -20,7 +20,7 @@ const generateMarkdownCodeWithUsername = async (username) => {
     return elementsArray.join("\r\n").trim();
   } catch (error) {
     console.log(error);
-    return false;
+    return "Error!";
   }
 };
 
@@ -29,7 +29,7 @@ const generateMarkdownCodeWithAddress = async (address) => {
     const poaps = await getPOAPsWithAddress(address);
 
     if (poaps.length == 0) {
-      return false;
+      return "No POAPs associated with this address!";
     }
 
     const elementsArray = ["## My [GitPOAPs](https://www.gitpoap.io/)", "<p>"];
@@ -44,7 +44,7 @@ const generateMarkdownCodeWithAddress = async (address) => {
     return elementsArray.join("\r\n").trim();
   } catch (error) {
     console.log(error);
-    return false;
+    return "Error!";
   }
 };
 
