@@ -18,9 +18,9 @@ function App() {
 
   return (
     <>
-      <h1>GitPOAP README Generator</h1>
+      <h1>GitPOAP Markdown Generator</h1>
       <input type="text" placeholder="Enter GitHub Username or address" />
-      <button>Generate README</button>
+      <button>Generate Markdown Code</button>
     </>
   );
 }

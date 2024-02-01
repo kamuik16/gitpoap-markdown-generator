@@ -1,1 +1,1 @@
-# GitPOAP README Generator
+# GitPOAP Markdown Generator
