@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getPOAPsWithUsername, getPOAPsWithAddress } from "./utils/getPOAPs";
+import { generateMarkdownCode } from "./helpers/getMarkdowncode";
 
 function App() {
   const [poaps, setPoaps] = useState([]);
@@ -8,15 +8,12 @@ function App() {
     "0x45bB66ADa6359912918e5D293989dc95B8F96D64"
   );
 
-  const fetchPOAPs = async () => {
-    const poapsFromUsername = await getPOAPsWithUsername(username);
-    console.log(poapsFromUsername);
-    const poapsFromAddress = await getPOAPsWithAddress(address);
-    console.log(poapsFromAddress);
+  const getMarkdownCode = async () => {
+    await generateMarkdownCode(username, address);
   };
 
   useEffect(() => {
-    fetchPOAPs();
+    getMarkdownCode();
   }, []);
 
   return (

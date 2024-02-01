@@ -2,17 +2,11 @@ import axios from "axios";
 
 const getPOAPsWithUsername = async (username) => {
   try {
-    const poapsClaimed = (
+    const poapsFromUsername = (
       await axios.get(
-        `https://public-api.gitpoap.io/v1/github/user/${username}/gitpoaps?status=claimed`
+        `https://public-api.gitpoap.io/v1/github/user/${username}/gitpoaps`
       )
     )?.data;
-    const poapsUnclaimed = (
-      await axios.get(
-        `https://public-api.gitpoap.io/v1/github/user/${username}/gitpoaps?status=unclaimed`
-      )
-    )?.data;
-    const poapsFromUsername = poapsClaimed.concat(poapsUnclaimed);
     return poapsFromUsername;
   } catch (error) {
     console.error(error);
