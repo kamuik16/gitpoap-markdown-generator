@@ -1,26 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { generateMarkdownCode } from "./helpers/getMarkdowncode";
+import {
+  generateMarkdownCodeWithUsername,
+  generateMarkdownCodeWithAddress,
+} from "./helpers/getMarkdowncode";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [poaps, setPoaps] = useState([]);
   const [username, setUsername] = useState("kamuik16");
-  const [address, setAddress] = useState(
-    "0x45bB66ADa6359912918e5D293989dc95B8F96D64"
-  );
+  const [address, setAddress] = useState("");
+  const [markdownCode, setMarkdownCode] = useState("");
 
-  const getMarkdownCode = async () => {
-    await generateMarkdownCode(username, address);
+  const getMarkdownCodeWithUsername = async () => {
+    const markdownCode = await generateMarkdownCodeWithUsername(username);
+    console.log(markdownCode);
   };
 
   useEffect(() => {
-    getMarkdownCode();
+    getMarkdownCodeWithUsername();
   }, []);
 
   return (
     <>
-      <h1>GitPOAP Markdown Generator</h1>
+      <Navbar />
       <input type="text" placeholder="Enter GitHub Username or address" />
-      <button>Generate Markdown Code</button>
+      <button>Username</button>
+      <button>Address</button>
     </>
   );
 }
