@@ -8,6 +8,8 @@ const generateMarkdownCodeWithUsername = async (username) => {
       return "No POAPs associated with this GitHub account!";
     }
 
+    poaps.sort((a, b) => new Date(b.earnedAt) - new Date(a.earnedAt));
+
     const elementsArray = ["## My [GitPOAPs](https://www.gitpoap.io/)", "<p>"];
 
     for (const poap of poaps) {
@@ -31,6 +33,8 @@ const generateMarkdownCodeWithAddress = async (address) => {
     if (poaps.length == 0) {
       return "No POAPs associated with this address!";
     }
+
+    poaps.sort((a, b) => new Date(b.earnedAt) - new Date(a.earnedAt));
 
     const elementsArray = ["## My [GitPOAPs](https://www.gitpoap.io/)", "<p>"];
 
