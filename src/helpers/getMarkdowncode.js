@@ -1,4 +1,5 @@
 import { getPOAPsWithUsername, getPOAPsWithAddress } from "./getPOAPs";
+import { isAddress } from "web3-validator";
 
 const generateMarkdownCodeWithUsername = async (username) => {
   try {
@@ -28,6 +29,11 @@ const generateMarkdownCodeWithUsername = async (username) => {
 
 const generateMarkdownCodeWithAddress = async (address) => {
   try {
+    const isValidAddress = isAddress(address);
+    if (!isValidAddress) {
+      return "Uh-oh! Invalid Ethereum Address!";
+    }
+
     const poaps = await getPOAPsWithAddress(address);
 
     if (poaps.length == 0) {
