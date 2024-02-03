@@ -3,10 +3,9 @@
 ![Forks](https://img.shields.io/github/forks/kamuik16/gitpoap-markdown-generator?style=social)
 ![Stargazers](https://img.shields.io/github/stars/kamuik16/gitpoap-markdown-generator?style=social)
 ![Contributors](https://img.shields.io/github/contributors/kamuik16/gitpoap-markdown-generator?color=dark-green)
-![License](https://img.shields.io/github/license/kamuik16/gitpoap-markdown-generator)
 
 <p align="center">
-<i>Enjoy using GitPOAP Markdown Generator? Please consider giving it a ⭐ to support!</i>
+<i>Enjoy using GitPOAP Markdown Generator? Consider giving it a ⭐ to support!</i>
 </p>
 
 ## Contributing
