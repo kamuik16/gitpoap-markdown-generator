@@ -1,11 +1,9 @@
-import axios from "axios";
+import axios from 'axios';
 
 const getPOAPsWithUsername = async (username) => {
   try {
     const poapsFromUsername = (
-      await axios.get(
-        `https://public-api.gitpoap.io/v1/github/user/${username}/gitpoaps`
-      )
+      await axios.get(`https://public-api.gitpoap.io/v1/github/user/${username}/gitpoaps`)
     )?.data;
     return poapsFromUsername;
   } catch (error) {
@@ -17,9 +15,7 @@ const getPOAPsWithUsername = async (username) => {
 const getPOAPsWithAddress = async (address) => {
   try {
     const poapsFromAddress = (
-      await axios.get(
-        `https://public-api.gitpoap.io/v1/address/${address}/gitpoaps`
-      )
+      await axios.get(`https://public-api.gitpoap.io/v1/address/${address}/gitpoaps`)
     )?.data;
     return poapsFromAddress;
   } catch (error) {
