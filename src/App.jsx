@@ -17,6 +17,7 @@ function App() {
 
     if (inputValue === '') {
       setErrors('Invalid input!');
+      setMarkdownCode('');
       return;
     }
 
@@ -35,6 +36,7 @@ function App() {
 
     if (inputValue === '') {
       setErrors('Invalid input!');
+      setMarkdownCode('');
       return;
     }
 

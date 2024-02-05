@@ -6,7 +6,7 @@ const generateMarkdownCodeWithUsername = async (username) => {
     const poaps = await getPOAPsWithUsername(username);
 
     if (poaps.length === 0) {
-      return { result: 'No GitPOAPs associated with this GitHub account!' };
+      return { error: 'No GitPOAPs associated with this GitHub account!' };
     }
 
     poaps.sort((a, b) => new Date(b.earnedAt) - new Date(a.earnedAt));
@@ -37,7 +37,7 @@ const generateMarkdownCodeWithAddress = async (address) => {
     const poaps = await getPOAPsWithAddress(address);
 
     if (poaps.length === 0) {
-      return { result: 'No GitPOAPs associated with this address!' };
+      return { error: 'No GitPOAPs associated with this address!' };
     }
 
     poaps.sort((a, b) => new Date(b.earnedAt) - new Date(a.earnedAt));
