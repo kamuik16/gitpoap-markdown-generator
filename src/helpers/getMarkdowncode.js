@@ -5,8 +5,8 @@ const generateMarkdownCodeWithUsername = async (username) => {
   try {
     const poaps = await getPOAPsWithUsername(username);
 
-    if (poaps.length == 0) {
-      return "No POAPs associated with this GitHub account!";
+    if (poaps.length === 0) {
+      return { result: "No GitPOAPs associated with this GitHub account!" };
     }
 
     poaps.sort((a, b) => new Date(b.earnedAt) - new Date(a.earnedAt));
@@ -20,10 +20,10 @@ const generateMarkdownCodeWithUsername = async (username) => {
 
     elementsArray.push("</p>");
 
-    return elementsArray.join("\r\n").trim();
+    return { result: elementsArray.join("\r\n").trim() };
   } catch (error) {
     console.log(error);
-    return "Error!";
+    return { error: "Error fetching data!" };
   }
 };
 
@@ -31,13 +31,13 @@ const generateMarkdownCodeWithAddress = async (address) => {
   try {
     const isValidAddress = isAddress(address);
     if (!isValidAddress) {
-      return "Uh-oh! Invalid Ethereum Address!";
+      return { error: "Uh-oh! Invalid Ethereum Address!" };
     }
 
     const poaps = await getPOAPsWithAddress(address);
 
-    if (poaps.length == 0) {
-      return "No POAPs associated with this address!";
+    if (poaps.length === 0) {
+      return { result: "No GitPOAPs associated with this address!" };
     }
 
     poaps.sort((a, b) => new Date(b.earnedAt) - new Date(a.earnedAt));
@@ -51,10 +51,10 @@ const generateMarkdownCodeWithAddress = async (address) => {
 
     elementsArray.push("</p>");
 
-    return elementsArray.join("\r\n").trim();
+    return { result: elementsArray.join("\r\n").trim() };
   } catch (error) {
     console.log(error);
-    return "Error!";
+    return { error: "Error fetching data!" };
   }
 };
 
