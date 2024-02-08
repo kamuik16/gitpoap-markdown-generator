@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const getPOAPsWithUsername = async (username) => {
+const getGitPOAPsWithUsername = async (username) => {
   try {
     const poapsFromUsername = (
       await axios.get(`https://public-api.gitpoap.io/v1/github/user/${username}/gitpoaps`)
@@ -12,7 +12,7 @@ const getPOAPsWithUsername = async (username) => {
   }
 };
 
-const getPOAPsWithAddress = async (address) => {
+const getGitPOAPsWithAddress = async (address) => {
   try {
     const poapsFromAddress = (
       await axios.get(`https://public-api.gitpoap.io/v1/address/${address}/gitpoaps`)
@@ -24,4 +24,4 @@ const getPOAPsWithAddress = async (address) => {
   }
 };
 
-export { getPOAPsWithUsername, getPOAPsWithAddress };
+export { getGitPOAPsWithUsername, getGitPOAPsWithAddress };

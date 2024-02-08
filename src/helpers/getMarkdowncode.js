@@ -1,9 +1,9 @@
-import { getPOAPsWithUsername, getPOAPsWithAddress } from './getPOAPs';
+import { getGitPOAPsWithUsername, getGitPOAPsWithAddress } from './getGitPOAPs';
 import { isAddress } from 'web3-validator';
 
 const generateMarkdownCodeWithUsername = async (username) => {
   try {
-    const poaps = await getPOAPsWithUsername(username);
+    const poaps = await getGitPOAPsWithUsername(username);
 
     if (poaps.length === 0) {
       return { error: 'No GitPOAPs associated with this GitHub account!' };
@@ -34,7 +34,7 @@ const generateMarkdownCodeWithAddress = async (address) => {
       return { error: 'Uh-oh! Invalid Ethereum Address!' };
     }
 
-    const poaps = await getPOAPsWithAddress(address);
+    const poaps = await getGitPOAPsWithAddress(address);
 
     if (poaps.length === 0) {
       return { error: 'No GitPOAPs associated with this address!' };
