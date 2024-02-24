@@ -4,7 +4,7 @@ const Navbar = () => {
       <div>
         <h1>GitPOAP Markdown Generator</h1>
         <a href='https://github.com/kamuik16/gitpoap-markdown-generator'>
-          <img src='../../public/github.svg' alt='GitHub Logo' className='h-8' />
+          <img src='/github.svg' alt='GitHub Logo' className='h-8' />
           <span>GitHub</span>
         </a>
       </div>
