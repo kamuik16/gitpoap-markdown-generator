@@ -1,22 +1,31 @@
 import { useState, useEffect } from 'react';
 
 const DisplayCode = (props) => {
-  const [copySuccess, setCopySuccess] = useState('');
+  const [copyMessage, setcopyMessage] = useState('Copy');
 
   const copyCode = async (copyMe) => {
     try {
       await navigator.clipboard.writeText(copyMe);
-      setCopySuccess('Copied!');
+      setcopyMessage('Copied!');
     } catch (error) {
-      setCopySuccess('Failed to copy!');
+      setcopyMessage('Failed to copy!');
     }
   };
 
+  useEffect(() => {
+    setcopyMessage('Copy');
+  }, [props.code]);
+
   return (
-    <>
-      <pre>{props.code}</pre>
-      <button onClick={() => copyCode(props.code)}>Copy</button>
-    </>
+    <div className='flex flex-col items-center border border-gray-300 rounded-lg p-4 mt-4'>
+      <code className='whitespace-pre-wrap'>{props.code}</code>
+      <button
+        onClick={() => copyCode(props.code)}
+        className='bg-blue-500 hover:bg-blue-600 text-white font-medium px-4 py-2 rounded-md mt-4'
+      >
+        {copyMessage}
+      </button>
+    </div>
   );
 };
 

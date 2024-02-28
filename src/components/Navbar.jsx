@@ -1,13 +1,17 @@
 const Navbar = () => {
   return (
-    <nav>
+    <nav className='container mx-auto flex items-center justify-between py-4'>
       <div>
-        <h1>GitPOAP Markdown Generator</h1>
-        <a href='https://github.com/kamuik16/gitpoap-markdown-generator'>
-          <img src='/github.svg' alt='GitHub Logo' className='h-8' />
-          <span>GitHub</span>
-        </a>
+        <h1 className='text-xl font-semibold'>GitPOAP Markdown Generator</h1>
       </div>
+      <a
+        href='https://github.com/kamuik16/gitpoap-markdown-generator'
+        className='flex items-center'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        <span>GitHub Repo</span>
+      </a>
     </nav>
   );
 };
